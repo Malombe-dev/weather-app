@@ -1,9 +1,5 @@
-use App\Services\WeatherService;
+<?php
 
-Route::get('weather/{city}', function ($city, WeatherService $weatherService) {
-    return response()->json($weatherService->getWeatherByCity($city));
-});
+use App\Http\Controllers\WeatherController;
 
-Route::get('forecast/{city}', function ($city, WeatherService $weatherService) {
-    return response()->json($weatherService->getForecastByCity($city));
-});
+Route::get('/weather', [WeatherController::class, 'getWeather']);
